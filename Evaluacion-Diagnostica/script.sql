@@ -10,5 +10,4 @@ ocupacion varchar(50),
 CV varchar(200),
 edad int
 )
-
 select * from usuario
