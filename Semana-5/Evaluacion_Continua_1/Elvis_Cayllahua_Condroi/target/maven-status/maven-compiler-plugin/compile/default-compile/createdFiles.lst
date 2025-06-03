@@ -1,0 +1,6 @@
+Modelo\Entrenador.class
+Modelo\Futbolista.class
+Modelo\SeleccionFutbol.class
+Vista\GestorSeleccionFutbol.class
+Modelo\Masajista.class
+Vista\GestorSeleccionFutbolGUI.class
