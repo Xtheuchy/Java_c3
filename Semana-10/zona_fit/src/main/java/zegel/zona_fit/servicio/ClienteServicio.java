@@ -10,21 +10,23 @@ import java.util.Optional;
 
 @Service
 public class ClienteServicio implements IClienteServicio {
+    //Inyectando dependencias
     @Autowired
     private ClienteRepositorio clienteRepositorio;
+
     @Override
     public List<Cliente> listarClientes() {
-        return clienteRepositorio.findAll();
+        List<Cliente> clientes = clienteRepositorio.findAll();
+        return clientes;
     }
-
     @Override
     public Cliente buscarClientePorId(Integer idCliente) {
-        Optional<Cliente> cliente = clienteRepositorio.findById(idCliente);
-        return cliente.orElse(null);
+        Cliente cliente = clienteRepositorio.findById(idCliente).orElse(null);
+        return cliente;
     }
 
     @Override
-    public void guardarCliente(Cliente cliente) {
+    public void guardarCliente(Cliente cliente) { //Permite guardar y actualizar
         clienteRepositorio.save(cliente);
     }
 
