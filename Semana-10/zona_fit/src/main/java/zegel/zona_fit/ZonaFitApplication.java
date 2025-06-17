@@ -61,8 +61,57 @@ public class ZonaFitApplication implements CommandLineRunner {
                  logger.info("Ingrese el id del cliente a buscar : ");
                  int clienteID = Integer.parseInt(consola.next());
                  Cliente cliente = clienteServicio.buscarClientePorId(clienteID);
-                 logger.info("El cliente con id : " + clienteID + " es : ");
-                 logger.info(cliente.toString());
+                 if(cliente!=null){
+                     logger.info("Cliente encontrado" + cliente.toString() + nl);
+                 }else{
+                     logger.info(cliente + nl);
+                 }
+            }
+            case 3 -> {
+                logger.info("Agregar cliente");
+                //a. Recibiendo datos
+                logger.info("ingrese el nombre del cliente");
+                String nombres = consola.next();
+                logger.info("ingrese el Apellido del cliente");
+                String apellidos = consola.next();
+                logger.info("ingrese la membresia del cliente");
+                Double membresia = Double.parseDouble(consola.next());
+                //b. crear un objeto cliente
+                Cliente cliente = new Cliente(null,nombres,apellidos,membresia);
+                clienteServicio.guardarCliente(cliente);
+                logger.info("Cliente correctamente agregado");
+            }
+            case 4 ->{
+                logger.info("Modificar cliente");
+                logger.info("Ingrese el id del cliente que desea modificar : ");
+                int ClienteID = Integer.parseInt(consola.next());
+                Cliente cliente = clienteServicio.buscarClientePorId(ClienteID);
+                if(cliente!=null){
+                    logger.info("ingrese el nombre del cliente");
+                    String nombres = consola.next();
+                    logger.info("ingrese el Apellido del cliente");
+                    String apellidos = consola.next();
+                    logger.info("ingrese la membresia del cliente");
+                    Double membresia = Double.parseDouble(consola.next());
+                    cliente = new Cliente(ClienteID,nombres,apellidos,membresia);
+                    clienteServicio.guardarCliente(cliente);
+                    logger.info("Cliente actualizado");
+                }
+                else {
+                    logger.info("Error ese id no pertenece a ningun cliente");
+                }
+            }
+            case 5 -> {
+                logger.info("Elimnar cliente");
+                logger.info("Ingrese el id del cliente que desea Eliminar : ");
+                int ClienteID = Integer.parseInt(consola.next());
+                Cliente cliente = clienteServicio.buscarClientePorId(ClienteID);
+                if(cliente!=null){
+                    clienteServicio.eliminarCliente(cliente);
+                    logger.info("Cliente eliminado");
+                }else {
+                    logger.info("Cliente con id " + ClienteID + "No existe");
+                }
             }
             case 6 -> {
                 logger.info("Hasta pronto!!");
@@ -77,7 +126,8 @@ public class ZonaFitApplication implements CommandLineRunner {
                 *** Menú de opciones  ***
                 1. Listar Clientes
                 2. Buscar Cliente
-                3. Agregar cliente Modificar Cliente
+                3. Agregar cliente 
+                4. Modificar Cliente
                 5. Eliminar Cliente
                 6. Salir
                 Elige una opción
