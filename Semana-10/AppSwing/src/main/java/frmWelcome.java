@@ -1,3 +1,5 @@
+import com.formdev.flatlaf.FlatDarculaLaf;
+
 import javax.swing.*;
 
 public class frmWelcome extends JFrame {
@@ -15,6 +17,8 @@ public class frmWelcome extends JFrame {
     }
     //4.- Crear el metodo de inicio
     public static void main(String[] args) {
+        //Cambiar el aspecto del formulario  (modo oscuro)
+        FlatDarculaLaf.setup();
         //a. Crear un objeto de la clase frWelcome
         frmWelcome formulario = new frmWelcome();
         //b. Mostrar formulario
