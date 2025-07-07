@@ -6,32 +6,32 @@ import zegel.zona_fit.modelo.Cliente;
 import zegel.zona_fit.repositorio.ClienteRepositorio;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ClienteServicio implements IClienteServicio {
     //Inyectando dependencias
     @Autowired
-    private ClienteRepositorio clienteRepositorio;
+    private ClienteRepositorio clienterepositorio;
 
     @Override
     public List<Cliente> listarClientes() {
-        List<Cliente> clientes = clienteRepositorio.findAll();
+        List<Cliente> clientes  = clienterepositorio.findAll();
         return clientes;
     }
+
     @Override
     public Cliente buscarClientePorId(Integer idCliente) {
-        Cliente cliente = clienteRepositorio.findById(idCliente).orElse(null);
+        Cliente  cliente = clienterepositorio.findById(idCliente).orElse(null);
         return cliente;
     }
 
     @Override
-    public void guardarCliente(Cliente cliente) { //Permite guardar y actualizar
-        clienteRepositorio.save(cliente);
+    public void guardarCliente(Cliente cliente) {
+            clienterepositorio.save(cliente);
     }
 
     @Override
     public void eliminarCliente(Cliente cliente) {
-        clienteRepositorio.delete(cliente);
+            clienterepositorio.delete(cliente);
     }
 }

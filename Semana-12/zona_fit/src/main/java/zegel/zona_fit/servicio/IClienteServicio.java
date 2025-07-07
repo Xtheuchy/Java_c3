@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IClienteServicio {
     //Describir las acciones de la clase Cliente
-    //No esta la implementacíon
+    //No esta la implementación
     public List<Cliente> listarClientes();
     public Cliente buscarClientePorId(Integer idCliente);
     public void guardarCliente(Cliente cliente);
