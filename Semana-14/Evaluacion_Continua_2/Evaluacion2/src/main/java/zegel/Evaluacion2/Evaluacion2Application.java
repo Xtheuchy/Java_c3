@@ -1,11 +1,13 @@
-package zegel.inventario;
+package zegel.Evaluacion2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class InventarioApplication {
+public class Evaluacion2Application {
+
 	public static void main(String[] args) {
-		SpringApplication.run(InventarioApplication.class, args);
+		SpringApplication.run(Evaluacion2Application.class, args);
 	}
+
 }
