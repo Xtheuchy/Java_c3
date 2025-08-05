@@ -23,7 +23,7 @@ public class frmZonaFit extends JFrame {
     private JButton guardarButton;
     private JButton eliminarButton;
     private JButton limpiarButton;
-    //Crear un Modelo de Tabka
+    //Crear un Modelo de Tabla
     private DefaultTableModel  tablaModeloCliente;
     private  Integer idCliente; //No tiene dato
 
@@ -45,8 +45,6 @@ public class frmZonaFit extends JFrame {
                 guardarCliente();
             }
         });
-
-
         clienteTabla.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -104,7 +102,7 @@ public class frmZonaFit extends JFrame {
     }
 
     //4. Configuración inicial al formulario(caracteristicas)
-    private  void    iniciarFormulario(){
+    private  void   iniciarFormulario(){
         setContentPane(panelPrincipal); //Contenedor Principal
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cerrar la App
         setSize(900,700); //Ancho y alto de la ventana
@@ -123,13 +121,13 @@ public class frmZonaFit extends JFrame {
         listarCliente();
     }
     //1. Crear un Programa que Liste todos los Clientes
-    private void    listarCliente(){
+    private void listarCliente(){
         this.tablaModeloCliente.setRowCount(0);
         //Ya tenemos todo los datos de los clientes
         var clientes = this.clienteServicio.listarClientes();
         //Recorrer a cada cliente
         clientes.forEach(cliente -> {
-            //Crear un array de tipo Object(int, Scring, ...)
+            //Crear un array de tipo Object(int, String, ...)
             Object[] regloncliente = {
                     cliente.getId(),
                     cliente.getNombres(),
